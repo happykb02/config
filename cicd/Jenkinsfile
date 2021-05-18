@@ -81,7 +81,7 @@ node {
         stage(stageName) {
             script {
                 sh "cd ${env.WORKSPACE}"
-                sh "if [ -f ${env.WORKSPACE}/run-cicd/cmd/run-cicd ]; then rm -rf run-cicd; fi"
+                sh "rm -rf ${env.WORKSPACE}/run-cicd 2>/dev/null"
                 sh "git clone " + env.run_cicd_git_url
             }
         }
